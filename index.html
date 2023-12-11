@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <link rel="shortcut icon" type="tab-icon" href="C:\Users\Sigmund\Desktop\PROJECT\CINEMA CHAPTERS.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+       body {
+            font-family: 'Arial', cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0c0c0c;
+            color: #fff;
+        }
+
+        header {
+            background: linear-gradient(to right, #8B0000, #FF0000);
+            color: white;
+            padding: 18px;
+            text-align: center;
+            font-family: 'Arial Black', cursive, sans-serif;
+            background-size: 200% 100%; 
+            animation: moveGradient 1s linear infinite alternate;
+        }
+
+        @keyframes moveGradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        h1.moving-title {
+            white-space: nowrap;
+            overflow: hidden;
+            font-size: 40px;
+            letter-spacing: 5px;
+            color: #f4f4f4;
+            text-shadow: 1px 1px 1px #919191,
+                         1px 2px 1px #919191,
+                         1px 3px 1px #919191,
+                         1px 4px 1px #919191,
+                         1px 5px 1px #919191,
+                         1px 6px 1px #919191,
+                         1px 7px 1px #919191,
+                         1px 8px 1px #919191,
+                         1px 9px 1px rgba(0, 0, 0, 0.3);
+            
+            /* Animation */
+            animation: flicker 2s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                opacity: 0.1;
+            }
+        }
+
+
+         nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #1a1a1a;
+            padding: 15px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+            font-family: 'Arial Black', cursive, sans-serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            font-size: 18px;
+            border-bottom: 5px solid #8B0000;
+            position: relative; 
+        }
+
+        nav:before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #bf0c0c;
+            z-index: 2; 
+            }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            position: relative;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            z-index: 3; 
+        }
+
+        nav a:hover {
+            color: #bf0c0c;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav a:hover:before {
+            height: 100%;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        h2 {
+            font-family: 'Arial Black', cursive, sans-serif;
+            font-size: 35px;
+            color: #fff;
+            position: relative;
+            animation: glowAnimation 5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowAnimation {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(255, 0, 0, 1); 
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(255, 0, 0, 1); 
+            }
+        }
+
+
+        .movie {
+            position: relative;
+            display: flex;
+            padding: 15px;
+            margin: 15px;
+            background: linear-gradient(180deg, #1a1a1a, #333);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            justify-content: space-between;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .movie:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+            z-index: 1;
+            border-radius: 15px;
+        }
+
+        .movie:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+        }
+
+        .movie img {
+            max-width: 400px;
+            border-radius: 8px;
+            z-index: 2;
+            position: relative;
+            transition: filter 0.3s ease-in-out;
+        }
+
+        .movie:hover img {
+            filter: brightness(80%);
+        }
+
+        .movie-content {
+            flex: 1;
+            text-align: center;
+            position: relative; 
+            z-index: 2; 
+        }
+
+        .trailer-container {
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .trailer {
+        width: 100%;
+        height: auto;
+        border: 8px solid #000000; 
+        border-radius: 8px;
+        display: block;
+        animation: moveGradient 1s linear infinite; 
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); 
+        
+        
+        outline: 2px solid #8B0000; 
+    }
+
+
+        .movie-content p {
+            line-height: 1.4; 
+        }
+
+      h3 {
+            font-family: 'Arial Black', cursive, sans-serif;
+            font-size: 40px;
+            color: #8B0000;
+            -webkit-text-stroke: 1px white; 
+            text-stroke: 1px white;
+            position: relative;
+            animation: flicker 6s infinite, glowAnimation 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowAnimation {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 1); /* White glow */
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 1); /* White glow */
+            }
+        }
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                opacity: 0.1;
+            }
+        }
+
+        .tab-content {
+            transition: display 1s ease;
+        }
+
+    
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 class="moving-title">||||| 🎫🎞️🍿 CINEMATIC CHAPTERS 🍿🎥🎬 |||||</h1>
+</header>
+
+<nav>
+    <a href="javascript:void(0);" onclick="showTab('home')">Home</a>
+    <a href="javascript:void(0);" onclick="showTab('top-rated')">Top Rated</a>
+    <a href="javascript:void(0);" onclick="showTab('trending')">Trending</a>
+    
+</nav> 
+
+<section id="home">
+    <h2>Home</h2>
+    
+    <div class="movie">
+        <div>
+            <br><br>
+            <img src="C:\Users\Sigmund\Desktop\PROJECT\movie 1.gif">
+        </div>
+        <div class="movie-content">
+            <h3>Avengers: Infinity War</h3>
+            <div class="trailer-container">
+                <video class="trailer" autoplay loop muted controls>
+                    <source src="C:\Users\Sigmund\Desktop\PROJECT\trailer1.mp4">
+                </video>
+                <p>Rating: ⭐⭐⭐⭐</p>
+                <p>
+                   "Avengers: Infinity War" is a masterful achievement in superhero filmmaking. It successfully brings together a vast universe of characters, delivers breathtaking action, and sets the stage for the epic conclusion in "Avengers: Endgame." While the sheer scale may be overwhelming for some, the film's ambition, emotional depth, and entertainment value make it a standout entry in the MCU.
+                </p>
+                <a href="https://www.primevideo.com/detail/Avengers-Infinity-War/0JTDAMFQF938HK16LTN698UJ7I">
+                    <img src="C:\Users\Sigmund\Desktop\PROJECT\amazonicon.jpg" width="120" height="120">
+                </a>
+                <a href="https://www.primevideo.com/detail/Avengers-Infinity-War/0JTDAMFQF938HK16LTN698UJ7I">
+                    <img src="C:\Users\Sigmund\Desktop\PROJECT\disney.jpg" width="120" height="120">
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="movie">
+        <div>
+            <br><br>
+            <img src="C:\Users\Sigmund\Desktop\PROJECT\movie 2.gif">
+        </div>
+        <div class="movie-content">
+            <h3>Now You See Me 2</h3>
+            <div class="trailer-container">
+                <video class="trailer" autoplay loop muted controls>
+                    <source src="C:\Users\Sigmund\Desktop\PROJECT\trailer2.mp4">
+                </video>
+                <p>Rating: ⭐⭐⭐</p>
+                <p>
+                  "Now You See Me 2" is an entertaining sequel that builds on the magic and illusion elements of its predecessor. While the film may not reach the same heights as the original, it offers an enjoyable blend of mystery, spectacle, and magic. The charismatic cast and visually impressive sequences contribute to an overall entertaining experience, even if the plot's complexity may leave some viewers scratching their heads.
+                </p>
+                <a href="https://www.netflix.com/ph-en/title/80093138">
+                    <img src="C:\Users\Sigmund\Desktop\PROJECT\netflix.png" width="120" height="120">
+                </a>
+                <a href="https://www.primevideo.com/detail/Now-You-See-Me-2/0SXMGQ3OYA6GSSKV8TTUZNRC7W">
+                    <img src="C:\Users\Sigmund\Desktop\PROJECT\amazonicon.jpg" width="120" height="120">
+                </a>
+        </div>
+    </div>
+</div>
+
+    <div class="movie">
+        <div>
+            <br><br>
+            <img src="C:\Users\Sigmund\Desktop\PROJECT\movie3.jpg">
+        </div>
+        <div class="movie-content">
+            <h3>Get Out</h3>
+            <div class="trailer-container">
+                <video class="trailer" autoplay loop muted controls>
+                    <source src="C:\Users\Sigmund\Desktop\PROJECT\trailer3.mp4">
+                </video>
+                <p>Rating: ⭐⭐⭐⭐⭐</p>
+                <p>
+                  "Get Out" is a groundbreaking film that transcends the horror genre. It skillfully combines scares with social commentary, delivering a thought-provoking and immersive experience. With its exceptional performances, tight storytelling, and bold exploration of race in America, "Get Out" stands as a modern classic and a testament to the power of horror as a vehicle for meaningful storytelling.
+                </p>
+                <a href="https://www.netflix.com/title/80149258">
+                    <img src="C:\Users\Sigmund\Desktop\PROJECT\netflix.png" width="120" height="120">
+                </a>
+                <a href="https://www.primevideo.com/detail/Get-Out/0I5O5QBPDCROOE5AE3CL6LT6XZ">
+                    <img src="C:\Users\Sigmund\Desktop\PROJECT\amazonicon.jpg" width="120" height="120">
+                </a>
+        </div>
+    </div>
+</div>
+
+ <div class="movie">
+        <div>
+            <br><br>
+            <img src="C:\Users\Sigmund\Desktop\PROJECT\movie 4.jpg">
+        </div>
+        <div class="movie-content">
+            <h3>El Camino: A Breaking Bad Movie</h3>
+            <div class="trailer-container">
+                <video class="trailer" autoplay loop muted controls>
+                    <source src="C:\Users\Sigmund\Desktop\PROJECT\trailer4.mp4">
+                </video>
+                <p>Rating: ⭐⭐⭐⭐</p>
+                <p>
+                  "El Camino" successfully concludes Jesse Pinkman's story, providing a fitting end to the Breaking Bad saga. While it may not reach the heights of the series, it stands as a compelling and well-crafted epilogue. Fans of Breaking Bad will appreciate the closure and the opportunity to delve deeper into Jesse's psyche.
+                </p>
+                <a href="https://www.netflix.com/title/81078819">
+                    <img src="C:\Users\Sigmund\Desktop\PROJECT\netflix.png" width="120" height="120">
+                </a>
+        </div>
+    </div>
+</div>
+
+    <div class="movie">
+        <div>
+            <br><br>
+            <img src="C:\Users\Sigmund\Desktop\PROJECT\movie 5.gif">
+        </div>
+        <div class="movie-content">
+            <h3>Inception</h3>
+            <div class="trailer-container">
+                <video class="trailer" autoplay loop muted controls>
+                    <source src="C:\Users\Sigmund\Desktop\PROJECT\trailer5.mp4">
+                </video>
+                <p>Rating: ⭐⭐⭐⭐⭐</p>
+                <p>
+                   Christopher Nolan's "Inception" is a mind-bending masterpiece that skillfully weaves together intricate storytelling, stunning visuals, and a brilliant ensemble cast. The film delves into the realm of dreams, presenting a labyrinthine narrative that challenges the audience's perceptions of reality. With its thought-provoking themes, Hans Zimmer's iconic score, and exceptional performances, "Inception" stands as a cinematic triumph, leaving a lasting impact on both the science fiction genre and mainstream filmmaking. 
+                </p>
+                <a href="https://www.amazon.com/Inception-Leonardo-DiCaprio/dp/B0B5K5PBX4">
+                    <img src="C:\Users\Sigmund\Desktop\PROJECT\amazonicon.jpg" width="120" height="120">
+                </a>
+                <a href="https://www.netflix.com/title/70131314">
+                    <img src="C:\Users\Sigmund\Desktop\PROJECT\netflix.png" width="120" height="120">
+                </a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section id="top-rated" style="display: none;">
+    <h2>Top Rated</h2>
+    <div class="movie">
+        <div>
+            <br><br>
+            <img src="C:\Users\Sigmund\Desktop\PROJECT\movie3.jpg">
+        </div>
+        <div class="movie-content">
+            <h3>Get Out</h3>
+            <div class="trailer-container">
+                <video class="trailer" autoplay loop muted controls>
+                    <source src="C:\Users\Sigmund\Desktop\PROJECT\trailer3.mp4">
+                </video>
+                <p>Rating: ⭐⭐⭐⭐⭐</p>
+                <p>
+                  "Get Out" is a groundbreaking film that transcends the horror genre. It skillfully combines scares with social commentary, delivering a thought-provoking and immersive experience. With its exceptional performances, tight storytelling, and bold exploration of race in America, "Get Out" stands as a modern classic and a testament to the power of horror as a vehicle for meaningful storytelling.
+                </p>
+                <a href="https://www.netflix.com/title/80149258">
+                    <img src="C:\Users\Sigmund\Desktop\PROJECT\netflix.png" width="120" height="120">
+                </a>
+                <a href="https://www.primevideo.com/detail/Get-Out/0I5O5QBPDCROOE5AE3CL6LT6XZ">
+                    <img src="C:\Users\Sigmund\Desktop\PROJECT\amazonicon.jpg" width="120" height="120">
+                </a>
+        </div>
+    </div>
+</div>
+
+    <div class="movie">
+        <div>
+            <br><br>
+            <img src="C:\Users\Sigmund\Desktop\PROJECT\movie 5.gif">
+        </div>
+        <div class="movie-content">
+            <h3>Inception</h3>
+            <div class="trailer-container">
+                <video class="trailer" autoplay loop muted controls>
+                    <source src="C:\Users\Sigmund\Desktop\PROJECT\trailer5.mp4">
+                </video>
+                <p>Rating: ⭐⭐⭐⭐⭐</p>
+                <p>
+                   Christopher Nolan's "Inception" is a mind-bending masterpiece that skillfully weaves together intricate storytelling, stunning visuals, and a brilliant ensemble cast. The film delves into the realm of dreams, presenting a labyrinthine narrative that challenges the audience's perceptions of reality. With its thought-provoking themes, Hans Zimmer's iconic score, and exceptional performances, "Inception" stands as a cinematic triumph, leaving a lasting impact on both the science fiction genre and mainstream filmmaking. 
+                </p>
+                <a href="https://www.amazon.com/Inception-Leonardo-DiCaprio/dp/B0B5K5PBX4">
+                    <img src="C:\Users\Sigmund\Desktop\PROJECT\amazonicon.jpg" width="120" height="120">
+                </a>
+                <a href="https://www.netflix.com/title/70131314">
+                    <img src="C:\Users\Sigmund\Desktop\PROJECT\netflix.png" width="120" height="120">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="movie">
+        <div>
+            <br><br>
+            <img src="C:\Users\Sigmund\Desktop\PROJECT\movie 4.jpg">
+        </div>
+        <div class="movie-content">
+            <h3>El Camino: A Breaking Bad Movie</h3>
+            <div class="trailer-container">
+                <video class="trailer" autoplay loop muted controls>
+                    <source src="C:\Users\Sigmund\Desktop\PROJECT\trailer4.mp4">
+                </video>
+                <p>Rating: ⭐⭐⭐⭐</p>
+                <p>
+                  "El Camino" successfully concludes Jesse Pinkman's story, providing a fitting end to the Breaking Bad saga. While it may not reach the heights of the series, it stands as a compelling and well-crafted epilogue. Fans of Breaking Bad will appreciate the closure and the opportunity to delve deeper into Jesse's psyche.
+                </p>
+                <a href="https://www.netflix.com/title/81078819">
+                    <img src="C:\Users\Sigmund\Desktop\PROJECT\netflix.png" width="120" height="120">
+                </a>
+        </div>
+    </div>
+</div>
+    
+    <div class="movie">
+        <div>
+            <br><br>
+            <img src="C:\Users\Sigmund\Desktop\PROJECT\movie 1.gif">
+        </div>
+        <div class="movie-content">
+            <h3>Avengers: Infinity War</h3>
+            <div class="trailer-container">
+                <video class="trailer" autoplay loop muted controls>
+                    <source src="C:\Users\Sigmund\Desktop\PROJECT\trailer1.mp4">
+                </video>
+                <p>Rating: ⭐⭐⭐⭐</p>
+                <p>
+                   "Avengers: Infinity War" is a masterful achievement in superhero filmmaking. It successfully brings together a vast universe of characters, delivers breathtaking action, and sets the stage for the epic conclusion in "Avengers: Endgame." While the sheer scale may be overwhelming for some, the film's ambition, emotional depth, and entertainment value make it a standout entry in the MCU.
+                </p>
+                <a href="https://www.primevideo.com/detail/Avengers-Infinity-War/0JTDAMFQF938HK16LTN698UJ7I">
+                    <img src="C:\Users\Sigmund\Desktop\PROJECT\amazonicon.jpg" width="120" height="120">
+                </a>
+                <a href="https://www.primevideo.com/detail/Avengers-Infinity-War/0JTDAMFQF938HK16LTN698UJ7I">
+                    <img src="C:\Users\Sigmund\Desktop\PROJECT\disney.jpg" width="120" height="120">
+                </a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section id="trending" style="display: none;">
+    <h2>Trending</h2>
+     
+    <div class="movie">
+        <div>
+            <br><br>
+            <img src="C:\Users\Sigmund\Desktop\PROJECT\movie 5.gif">
+        </div>
+        <div class="movie-content">
+            <h3>Inception</h3>
+            <div class="trailer-container">
+                <video class="trailer" autoplay loop muted controls>
+                    <source src="C:\Users\Sigmund\Desktop\PROJECT\trailer5.mp4">
+                </video>
+                <p>Rating: ⭐⭐⭐⭐⭐</p>
+                <p>
+                   Christopher Nolan's "Inception" is a mind-bending masterpiece that skillfully weaves together intricate storytelling, stunning visuals, and a brilliant ensemble cast. The film delves into the realm of dreams, presenting a labyrinthine narrative that challenges the audience's perceptions of reality. With its thought-provoking themes, Hans Zimmer's iconic score, and exceptional performances, "Inception" stands as a cinematic triumph, leaving a lasting impact on both the science fiction genre and mainstream filmmaking. 
+                </p>
+                <a href="https://www.amazon.com/Inception-Leonardo-DiCaprio/dp/B0B5K5PBX4">
+                    <img src="C:\Users\Sigmund\Desktop\PROJECT\amazonicon.jpg" width="120" height="120">
+                </a>
+                <a href="https://www.netflix.com/title/70131314">
+                    <img src="C:\Users\Sigmund\Desktop\PROJECT\netflix.png" width="120" height="120">
+                </a>
+            </div>
+        </div>
+    </div>
+
+     <div class="movie">
+        <div>
+            <br><br>
+            <img src="C:\Users\Sigmund\Desktop\PROJECT\movie 2.gif">
+        </div>
+        <div class="movie-content">
+            <h3>Now You See Me 2</h3>
+            <div class="trailer-container">
+                <video class="trailer" autoplay loop muted controls>
+                    <source src="C:\Users\Sigmund\Desktop\PROJECT\trailer2.mp4">
+                </video>
+                <p>Rating: ⭐⭐⭐</p>
+                <p>
+                  "Now You See Me 2" is an entertaining sequel that builds on the magic and illusion elements of its predecessor. While the film may not reach the same heights as the original, it offers an enjoyable blend of mystery, spectacle, and magic. The charismatic cast and visually impressive sequences contribute to an overall entertaining experience, even if the plot's complexity may leave some viewers scratching their heads.
+                </p>
+                <a href="https://www.netflix.com/ph-en/title/80093138">
+                    <img src="C:\Users\Sigmund\Desktop\PROJECT\netflix.png" width="120" height="120">
+                </a>
+                <a href="https://www.primevideo.com/detail/Now-You-See-Me-2/0SXMGQ3OYA6GSSKV8TTUZNRC7W">
+                    <img src="C:\Users\Sigmund\Desktop\PROJECT\amazonicon.jpg" width="120" height="120">
+                </a>
+        </div>
+    </div>
+</div>
+    
+</section>
+
+<script>
+    function showTab(tabName) {
+        
+        var sections = document.querySelectorAll('section');
+
+        
+        sections.forEach(function (section) {
+            section.style.opacity = 0;
+            section.style.display = 'none';
+        });
+
+        
+        document.getElementById(tabName).style.display = 'block';
+        fadeIn(document.getElementById(tabName), 500);
+    }
+
+    function fadeIn(element, duration) {
+        var interval = 10;
+        var targetOpacity = 1;
+        var currentOpacity = 0;
+
+        element.style.opacity = currentOpacity;
+
+        var fadeInInterval = setInterval(function () {
+            if (currentOpacity < targetOpacity) {
+                currentOpacity += 1 / (duration / interval);
+                element.style.opacity = currentOpacity;
+            } else {
+                clearInterval(fadeInInterval);
+            }
+        }, interval);
+    }
+</script>
+
+</body>
+</html>
